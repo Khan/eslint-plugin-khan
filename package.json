@@ -1,0 +1,17 @@
+{
+  "name": "eslint-plugin-khan",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/Khan/eslint-plugin-khan",
+  "author": "Kevin Barabash <kevinb@khanacademy.org>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0",
+    "mocha": "^3.3.0"
+  },
+  "scripts": {
+    "test": "mocha test/**/*.js"
+  }
+}
