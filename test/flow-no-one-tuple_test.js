@@ -3,7 +3,7 @@ const RuleTester = require('eslint').RuleTester;
 
 const parserOptions = {
     ecmaVersion: 2015,
-    parser: "babel-eslint",
+    parser: 'babel-eslint',
 };
 
 const ruleTester = new RuleTester(parserOptions);
