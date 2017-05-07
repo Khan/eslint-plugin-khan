@@ -24,6 +24,12 @@ class MyComponent extends Component {
         console.log('Will mount!');
     }
 }`;
+const validBecauseSubAfterMount = `
+class MyComponent extends Component {
+    componentDidMount() {
+        window.addEventListener('scroll', () => {})
+    }
+}`;
 
 const invalidBecausePromiseInConstructor = `
 class MyComponent extends Component {
@@ -78,7 +84,7 @@ class MyComponent extends Component {
     }
 }`;
 
-const invalidBecauseNestedSub = `
+const invalidBecauseSubWithinBlock = `
 class MyComponent extends Component {
     componentWillMount() {
         if (this.whatever = 10) {
@@ -87,20 +93,50 @@ class MyComponent extends Component {
     }
 }`;
 
+const invalidWithNestedProperty = `
+class MyComponent extends Component {
+    componentWillMount() {
+        document.body.addEventListener('scroll', function() {});
+    }
+}`;
+
+const invalidWithinPromise = `
+class MyComponent extends Component {
+    componentWillMount() {
+        this.promise = new Promise((resolve, reject) => {
+            setTimeout(function() {}, 1000)
+        })
+    }
+}`;
+
+// TODO (josh): This example currently passes, but it should fail.
+// Once the rule is less naive, add this example to the invalid tests.
+// eslint-disable-next-line
+const TODOInvalid = `
+class MyComponent extends Component {
+    componentWillMount() {
+        this.subscribeToInfo();
+    }
+
+    subscribeToInfo() {
+        api.fetch().then(() => {
+
+        });
+    }
+}`;
+
 ruleTester.run('bind-react-methods', rule, {
-    valid: [
-        // validBecauseNoSubs
-    ],
+    valid: [validBecauseNoSubs, validBecauseSubAfterMount],
 
     invalid: [
-        // invalidBecausePromiseInConstructor,
-        // invalidBecausePromiseInCWM,
-        // invalidBecauseEventListener,
-        // invalidBecauseSetTimeoutAsGlobal,
-        // invalidBecauseSetTimeoutAsProperty,
-        invalidBecauseNestedSub,
-    ].map(code => ({
-        code,
-        errors: [message],
-    }))
+        invalidBecausePromiseInConstructor,
+        invalidBecausePromiseInCWM,
+        invalidBecauseEventListener,
+        invalidBecauseSetTimeoutAsGlobal,
+        invalidBecauseSetTimeoutAsProperty,
+        invalidBecauseSubWithinBlock,
+        invalidWithNestedProperty,
+        invalidWithinPromise,
+        // TODOInvalid,
+    ].map(code => ({code, errors})),
 });

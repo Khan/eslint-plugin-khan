@@ -6,7 +6,6 @@
   "author": "Kevin Barabash <kevinb@khanacademy.org>",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -16,6 +15,7 @@
   },
   "scripts": {
     "test": "mocha test/**/*.js",
-    "prettier": "prettier --trailing-comma es5 --tab-width 4 --single-quote --write '{lib,test}/**/*.js'"
+    "prettier": "prettier --trailing-comma es5 --tab-width 4 --single-quote --write '{lib,test}/**/*.js'",
+    "prepublish": "npm run test && npm run prettier"
   }
 }
