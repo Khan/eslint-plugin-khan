@@ -6,5 +6,5 @@ eslint plugin with our set of custom rules for various things
 
 ## Rules
 
-- no-async
-- no-generators
+- [khan/flow-array-type-style](docs/flow-array-type-style.md)
+- [khan/flow-no-one-tuple](docs/flow-no-one-tuple)
