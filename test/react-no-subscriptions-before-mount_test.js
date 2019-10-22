@@ -1,9 +1,8 @@
-const rule = require('../lib/rules/react-no-subscriptions-before-mount');
-const RuleTester = require('eslint').RuleTester;
+const rule = require("../lib/rules/react-no-subscriptions-before-mount");
+const RuleTester = require("eslint").RuleTester;
 
 const parserOptions = {
-    ecmaVersion: 2015,
-    parser: 'babel-eslint',
+    parser: "babel-eslint",
 };
 
 const ruleTester = new RuleTester(parserOptions);
@@ -125,7 +124,7 @@ class MyComponent extends Component {
     }
 }`;
 
-ruleTester.run('bind-react-methods', rule, {
+ruleTester.run("bind-react-methods", rule, {
     valid: [validBecauseNoSubs, validBecauseSubAfterMount],
 
     invalid: [
