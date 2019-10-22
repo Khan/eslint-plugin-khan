@@ -88,22 +88,4 @@ ruleTester.run("imports-requiring-flow", rule, {
             ],
         },
     ],
-    // invalid: [
-    //     {
-    //         code: "type foo = { bar: [number] }",
-    //         options: ["always"],
-    //         errors: errors,
-    //         output: "type foo = { bar: Array<number> }",
-    //     },
-    //     {
-    //         code: "type foo = { bar: [[number]] }",
-    //         options: ["always"],
-    //         // Two errors are reported because there are two one-tuples,
-    //         // they just happen to be nested.
-    //         errors: [message, message],
-    //         // This is a partial fix.  Multiple runs of eslint --fix are needed
-    //         // to fix nested 1-tuples completely.
-    //         output: "type foo = { bar: Array<[number]> }",
-    //     },
-    // ],
 });
