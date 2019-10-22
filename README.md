@@ -7,4 +7,5 @@ eslint plugin with our set of custom rules for various things
 ## Rules
 
 - [khan/flow-array-type-style](docs/flow-array-type-style.md)
-- [khan/flow-no-one-tuple](docs/flow-no-one-tuple)
+- [khan/flow-no-one-tuple](docs/flow-no-one-tuple.md)
+- [khan/react-no-subscriptions-before-mount](docs/react-no-subscriptions-before-mount.md)
