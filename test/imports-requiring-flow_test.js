@@ -1,3 +1,5 @@
+const path = require("path");
+
 const rule = require("../lib/rules/imports-requiring-flow");
 const RuleTester = require("eslint").RuleTester;
 
@@ -8,6 +10,7 @@ const parserOptions = {
 const ruleTester = new RuleTester(parserOptions);
 const message = rule.__message;
 const errors = [message];
+const rootDir = "/Users/nyancat/project";
 
 const importFooPkgFlow = `
 // @flow
@@ -53,61 +56,67 @@ ruleTester.run("imports-requiring-flow", rule, {
     valid: [
         {
             code: importFooPkgFlow,
-            filename: "src/package-1/foobar.js",
+            filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
                 "always",
                 {
                     modules: ["foo"],
+                    rootDir,
                 },
             ],
         },
         {
             code: importBarModFlow,
-            filename: "src/package-1/foobar.js",
+            filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
                 "always",
                 {
                     modules: ["src/package-2/bar.js"],
+                    rootDir,
                 },
             ],
         },
         {
             code: importFooPkgNoflow,
-            filename: "src/package-1/foobar.js",
+            filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
                 "always",
                 {
                     modules: ["baz"], // isn't imported so it's okay
+                    rootDir,
                 },
             ],
         },
         {
             code: importBarModNoflow,
-            filename: "src/package-1/foobar.js",
+            filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
                 "always",
                 {
                     modules: ["baz"], // isn't imported so it's okay
+                    rootDir,
                 },
             ],
         },
         {
             code: requireFooPkgNoflow,
-            filename: "src/package-1/foobar.js",
+            filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
                 "always",
                 {
                     modules: ["baz"], // isn't imported so it's okay
+                    rootDir,
                 },
             ],
         },
         {
             code: requireBarModNoflow,
-            filename: "src/package-1/foobar.js",
+            filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
                 "always",
                 {
                     modules: ["baz"], // isn't imported so it's okay
+                    rootDir,
                 },
             ],
         },
@@ -115,44 +124,48 @@ ruleTester.run("imports-requiring-flow", rule, {
     invalid: [
         {
             code: importFooPkgNoflow,
-            filename: "src/package-1/foobar.js",
+            filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
                 "always",
                 {
                     modules: ["foo"],
+                    rootDir,
                 },
             ],
             errors: ['Importing "foo" requires using flow.'],
         },
         {
             code: importBarModNoflow,
-            filename: "src/package-1/foobar.js",
+            filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
                 "always",
                 {
                     modules: ["src/package-2/bar.js"],
+                    rootDir,
                 },
             ],
             errors: ['Importing "../package-2/bar.js" requires using flow.'],
         },
         {
             code: requireFooPkgNoflow,
-            filename: "src/package-1/foobar.js",
+            filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
                 "always",
                 {
                     modules: ["foo"],
+                    rootDir,
                 },
             ],
             errors: ['Importing "foo" requires using flow.'],
         },
         {
             code: requireBarModNoflow,
-            filename: "src/package-1/foobar.js",
+            filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
                 "always",
                 {
                     modules: ["src/package-2/bar.js"],
+                    rootDir,
                 },
             ],
             errors: ['Importing "../package-2/bar.js" requires using flow.'],

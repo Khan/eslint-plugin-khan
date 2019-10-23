@@ -5,12 +5,24 @@ rely on flow to catch issues when refactoring those modules.  This rule
 requires that any files importing one of the specified modules be using
 flow as indicated by a `// @flow` comment in the file.
 
+Notes:
+- All paths in `modules` that aren't npm packages are considered to be
+  relative to `rootDir`.
+- `rootDir` is required and should usually be set to `__dirname`.  This
+  requires the the configuration of `khan/imports-requiring-flow` to be
+  done in a `.js` file.
+
 ## Rule Details
 
 Give the following rule config:
 
 ```
-"khan/imports-requiring-flow": ["always", {modules: ["foo", "src/bar.js"]}]
+"khan/imports-requiring-flow": [
+    "always", {
+        rootDir: __dirname,
+        modules: ["foo", "src/bar.js"],
+    },
+]
 ```
 
 The following are considered warnings:
