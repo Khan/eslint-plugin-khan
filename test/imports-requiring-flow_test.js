@@ -58,7 +58,6 @@ ruleTester.run("imports-requiring-flow", rule, {
             code: importFooPkgFlow,
             filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
-                "always",
                 {
                     modules: ["foo"],
                     rootDir,
@@ -69,7 +68,6 @@ ruleTester.run("imports-requiring-flow", rule, {
             code: importBarModFlow,
             filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
-                "always",
                 {
                     modules: ["src/package-2/bar.js"],
                     rootDir,
@@ -80,7 +78,6 @@ ruleTester.run("imports-requiring-flow", rule, {
             code: importFooPkgNoflow,
             filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
-                "always",
                 {
                     modules: ["baz"], // isn't imported so it's okay
                     rootDir,
@@ -91,7 +88,6 @@ ruleTester.run("imports-requiring-flow", rule, {
             code: importBarModNoflow,
             filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
-                "always",
                 {
                     modules: ["baz"], // isn't imported so it's okay
                     rootDir,
@@ -102,7 +98,6 @@ ruleTester.run("imports-requiring-flow", rule, {
             code: requireFooPkgNoflow,
             filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
-                "always",
                 {
                     modules: ["baz"], // isn't imported so it's okay
                     rootDir,
@@ -113,7 +108,6 @@ ruleTester.run("imports-requiring-flow", rule, {
             code: requireBarModNoflow,
             filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
-                "always",
                 {
                     modules: ["baz"], // isn't imported so it's okay
                     rootDir,
@@ -126,7 +120,6 @@ ruleTester.run("imports-requiring-flow", rule, {
             code: importFooPkgNoflow,
             filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
-                "always",
                 {
                     modules: ["foo"],
                     rootDir,
@@ -138,7 +131,6 @@ ruleTester.run("imports-requiring-flow", rule, {
             code: importBarModNoflow,
             filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
-                "always",
                 {
                     modules: ["src/package-2/bar.js"],
                     rootDir,
@@ -150,7 +142,6 @@ ruleTester.run("imports-requiring-flow", rule, {
             code: requireFooPkgNoflow,
             filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
-                "always",
                 {
                     modules: ["foo"],
                     rootDir,
@@ -162,7 +153,6 @@ ruleTester.run("imports-requiring-flow", rule, {
             code: requireBarModNoflow,
             filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
-                "always",
                 {
                     modules: ["src/package-2/bar.js"],
                     rootDir,

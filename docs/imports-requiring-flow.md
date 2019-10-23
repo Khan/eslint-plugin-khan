@@ -18,7 +18,7 @@ Give the following rule config:
 
 ```
 "khan/imports-requiring-flow": [
-    "always", {
+    "error", {
         rootDir: __dirname,
         modules: ["foo", "src/bar.js"],
     },
