@@ -1,6 +1,9 @@
 {
   "name": "@khanacademy/eslint-plugin",
-  "version": "0.1.1",
+  "version": "0.2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "lib/index.js",
   "repository": "https://github.com/Khan/eslint-plugin-khan",
   "author": "Kevin Barabash <kevinb@khanacademy.org>",
