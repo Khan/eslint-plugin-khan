@@ -66,7 +66,7 @@ class Foo {
     }
 
     render() {
-        return <div onClick={this.bar} />
+        return <div id={this.bar} />
     }
 }`,
             options: [],

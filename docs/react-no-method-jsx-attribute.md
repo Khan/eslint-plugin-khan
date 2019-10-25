@@ -66,3 +66,15 @@ class Foo extends React.Component {
     }
 }
 ```
+
+```js
+class Foo extends React.Component {
+    get bar() {
+        return this._bar;
+    }
+
+    render() {
+        return <div id={this.bar} />
+    }
+}
+```
