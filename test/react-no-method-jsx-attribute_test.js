@@ -11,6 +11,7 @@ const ruleTester = new RuleTester(parserOptions);
 
 ruleTester.run("react-no-method-jsx-attribute", rule, {
     valid: [
+        // method arrow function in constructor
         {
             code: `
 class Foo {
@@ -24,6 +25,7 @@ class Foo {
 }`,
             options: [],
         },
+        // method arrow function class property
         {
             code: `
 class Foo {
@@ -35,6 +37,7 @@ class Foo {
 }`,
             options: [],
         },
+        // different classes using the same event handler
         {
             code: `
 class Foo {
@@ -54,8 +57,23 @@ class Bar {
 }`,
             options: [],
         },
+        // getter method - called in Foo's scope so it's fine
+        {
+            code: `
+class Foo {
+    get bar() {
+        return this._bar;
+    }
+
+    render() {
+        return <div onClick={this.bar} />
+    }
+}`,
+            options: [],
+        },
     ],
     invalid: [
+        // regular method, not okay
         {
             code: `
 class Foo {
@@ -70,6 +88,7 @@ class Foo {
                 "Methods cannot be passed as props, use a class property instead.",
             ],
         },
+        // two regular methods, both not okay, two errors
         {
             code: `
 class Foo {
