@@ -1,41 +1,35 @@
-# Require exact object types for Props (flow-exact-props)
+# Require exact object types for State (flow-exact-state)
 
-Using exact object types for Props can help identify extra props and in
-the case of optional props, typos.
+Using exact object types for State can help types when there are optional
+state properties.
 
 ## Rule Details
 
 The following are considered warnings:
 
 ```js
-type Props = { x: number };
-class Foo extends React.Component<Props> {}
+type Props = {| x: number |};
+type State = { x: number };
+class Foo extends React.Component<Props, State> {}
 ```
 
 ```js
-type FooProps = { x: number };
-class Foo extends React.Component<FooProps> {}
-```
-
-```js
-type Props = { x: number };
-const Foo = (props: Props) => {}
+type FooProps = {| x: number |};
+type FooState = { x: number };
+class Foo extends React.Component<FooProps, FooState> {}
 ```
 
 The following are not considered warnings:
 
 ```js
-type Props = {| x: number |};
-class Foo extends React.Component<Props> {}
+type Props = { x: number };
+type State = {| x: number |};
+class Foo extends React.Component<Props, State> {}
 ```
 
 ```js
-type BarProps = { x: number };
-type FooProps = {| x: number |};
-class Foo extends React.Component<FooProps> {}
-```
-
-```js
-type Props = {| x: number |};
-const Foo = (props: Props) => {}
+type FooProps = { x: number };
+type BarState = { x: number };
+type FooState = {| x: number |};
+class Foo extends React.Component<FooProps, FooState> {
 ```
