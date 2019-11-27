@@ -3,7 +3,8 @@
 Using exact object types for Props can help identify extra props and in
 the case of optional props, typos.
 
-This rule supports autofixing. Please note, this may result in new flow errors.
+This rule supports autofixing.  Please note, this may result in new flow
+errors.
 
 ## Rule Details
 
