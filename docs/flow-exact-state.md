@@ -3,6 +3,8 @@
 Using exact object types for State can help types when there are optional
 state properties.
 
+This rule supports autofixing. Please note, this may result in new flow errors.
+
 ## Rule Details
 
 The following are considered warnings:
