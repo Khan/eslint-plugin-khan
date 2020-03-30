@@ -13,3 +13,4 @@ eslint plugin with our set of custom rules for various things
 - [khan/imports-requiring-flow](docs/imports-requiring-flow.md)
 - [khan/react-no-method-jsx-attribute](docs/react-no-method-jsx-attribute.md)
 - [khan/react-no-subscriptions-before-mount](docs/react-no-subscriptions-before-mount.md)
+- [khan/react-svg-path-repcision](docs/react-svg-path-precision.md)
