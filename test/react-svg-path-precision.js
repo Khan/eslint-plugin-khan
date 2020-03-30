@@ -49,6 +49,7 @@ ruleTester.run("react-svg-path-precision", rule, {
             errors: [
                 "This path contains numbers with too many decimal places.",
             ],
+            output: "<path d=M1.2,0.4L-0.9,42Z/>",
         },
     ],
 });
