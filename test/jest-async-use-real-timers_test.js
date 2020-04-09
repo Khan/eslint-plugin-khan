@@ -74,6 +74,32 @@ describe("foo", () => {
 })`,
             options: [],
         },
+        {
+            code: `describe("foo", fn)`,
+            options: [],
+        },
+        {
+            code: `describe("foo", () => fn())`,
+            options: [],
+        },
+        {
+            code: `
+describe("foo", () => {
+    it("requires real timers", asyncFn);
+})`,
+            options: [],
+        },
+        {
+            code: `
+describe("foo", () => {
+    beforeEach(() => {
+        jest.useRealTimers();
+    });
+
+    it("requires real timers", async () => asyncFn());
+})`,
+            options: [],
+        },
     ],
     invalid: [
         {
@@ -122,6 +148,14 @@ describe("foo", () => {
 
         it("requires real timers", async () => {});
     });
+})`,
+            options: [],
+            errors: ["Async tests require jest.useRealTimers()."],
+        },
+        {
+            code: `
+describe("foo", () => {
+    it("requires real timers", async () => asyncFn());
 })`,
             options: [],
             errors: ["Async tests require jest.useRealTimers()."],
