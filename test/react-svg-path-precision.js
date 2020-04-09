@@ -32,7 +32,7 @@ ruleTester.run("react-svg-path-precision", rule, {
             errors: [
                 "This path contains numbers with too many decimal places.",
             ],
-            output: "<path d=M1.23,0.46L-0.99,42Z/>",
+            output: '<path d="M1.23,0.46L-0.99,42Z"/>',
         },
         {
             code: '<div><path d="M1.234,.456Z"/><path d="M1.234,.456Z"/></div>',
@@ -41,7 +41,7 @@ ruleTester.run("react-svg-path-precision", rule, {
                 "This path contains numbers with too many decimal places.",
                 "This path contains numbers with too many decimal places.",
             ],
-            output: "<div><path d=M1.23,0.46Z/><path d=M1.23,0.46Z/></div>",
+            output: '<div><path d="M1.23,0.46Z"/><path d="M1.23,0.46Z"/></div>',
         },
         {
             code: '<path d="M1.23,0.45L-0.98,42Z"/>',
@@ -49,7 +49,7 @@ ruleTester.run("react-svg-path-precision", rule, {
             errors: [
                 "This path contains numbers with too many decimal places.",
             ],
-            output: "<path d=M1.2,0.5L-1.0,42Z/>",
+            output: '<path d="M1.2,0.5L-1.0,42Z"/>',
         },
     ],
 });
