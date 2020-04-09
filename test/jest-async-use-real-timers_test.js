@@ -80,9 +80,7 @@ describe("foo", () => {
     it("requires real timers", async () => {});
 })`,
             options: ["never"],
-            errors: [
-                "Async tests require jest.useRealTimers().",
-            ],
+            errors: ["Async tests require jest.useRealTimers()."],
         },
     ],
     invalid: [
@@ -92,9 +90,7 @@ describe("foo", () => {
     it("requires real timers", async () => {});
 })`,
             options: ["always"],
-            errors: [
-                "Async tests require jest.useRealTimers().",
-            ],
+            errors: ["Async tests require jest.useRealTimers()."],
         },
         {
             code: `
@@ -102,9 +98,7 @@ describe("foo", () => {
     it("requires real timers", async function() {});
 })`,
             options: ["always"],
-            errors: [
-                "Async tests require jest.useRealTimers().",
-            ],
+            errors: ["Async tests require jest.useRealTimers()."],
         },
         {
             code: `
@@ -114,9 +108,7 @@ describe("foo", () => {
     it("requires real timers", async () => {});
 })`,
             options: ["always"],
-            errors: [
-                "Async tests require jest.useRealTimers().",
-            ],
+            errors: ["Async tests require jest.useRealTimers()."],
         },
         {
             code: `
@@ -128,9 +120,7 @@ describe("foo", () => {
     });
 })`,
             options: ["always"],
-            errors: [
-                "Async tests require jest.useRealTimers().",
-            ],
+            errors: ["Async tests require jest.useRealTimers()."],
         },
         {
             code: `
@@ -142,9 +132,7 @@ describe("foo", () => {
     });
 })`,
             options: ["always"],
-            errors: [
-                "Async tests require jest.useRealTimers().",
-            ],
+            errors: ["Async tests require jest.useRealTimers()."],
         },
     ],
 });
