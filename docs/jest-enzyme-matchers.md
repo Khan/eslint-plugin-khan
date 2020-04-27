@@ -7,70 +7,58 @@ supporters auto-fixing.
 
 ## Rule Details
 
-The following are considered warnings:
-
 ```js
+// Invalid
 expect(wrapper.first().prop("foo")).toEqual("bar");
-```
 
-```js
-expect(wrapper.first().state("foo")).toEqual("bar");
-```
-
-```js
-expect(wrapper.find(".foo")).toHaveLength(2);
-```
-
-```js
-expect(wrapper.find(".foo").text()).toEqual("bar");
-```
-
-```js
-expect(wrapper.find(".foo").html()).toEqual("<p>bar</p>");
-```
-
-```js
-expect(wrapper.find(".foo").exists()).toBeTrue();
-```
-
-```js
-expect(wrapper.exists(".foo")).toBeTrue();
-```
-
-```js
-expect(wrapper.find(".foo").exists()).toBeFalse();
-```
-
-```js
-expect(wrapper.exists(".foo")).toBeFalse();
-```
-
-The following are not considered warnings:
-
-```js
+// Valid
 expect(wrapper).toHaveProp("foo", "bar");
 ```
 
 ```js
+// Invalid
+expect(wrapper.first().state("foo")).toEqual("bar");
+
+// Valid
 expect(wrapper).toHaveState("foo", "bar");
 ```
 
 ```js
+// Invalid
+expect(wrapper.find(".foo")).toHaveLength(2);
+
+// Valid
 expect(wrapper).toContainMatchingElements(2, ".foo");
 ```
 
 ```js
+// Invalid
+expect(wrapper.find(".foo").text()).toEqual("bar");
+
+// Valid
 expect(wrapper.find(".foo")).toHaveText("bar");
 ```
 
 ```js
+// Invalid
+expect(wrapper.find(".foo").html()).toEqual("<p>bar</p>");
+
+// Valid
 expect(wrapper.find(".foo")).toHaveHTML("<p>bar</p>");
 ```
 
 ```js
+// Invalid
+expect(wrapper.find(".foo").exists()).toBeTrue();
+
+// Valid
 expect(wrapper.find(".foo")).toExist();
 ```
 
 ```js
-expect(wrapper).toContainMatchingElement(".foo");
+// Invalid
+expect(wrapper.find(".foo").exists()).toBeFalse();
+
+// Valid
+expect(wrapper.find(".foo")).not.toExist();
 ```
