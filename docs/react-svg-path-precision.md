@@ -13,11 +13,12 @@ an object, e.g. `{precision: 3}`, as an option in your eslint configuration.
 The following are considered warnings:
 
 ```js
-<path d="M1.23,0.45L-0.98,42Z"/>
+<path d="M1.234,0.456L-0.987,42Z"/>
+            ^^^   ^^^    ^^^
 ```
 
 The following are not considered warnings:
 
 ```js
-<path d="M1.234,0.456L-0.987,42Z"/>
+<path d="M1.23,0.45L-0.98,42Z"/>
 ```
