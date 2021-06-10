@@ -128,6 +128,11 @@ ajv@^6.10.2, ajv@^6.9.1:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
+ancesdir@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/ancesdir/-/ancesdir-2.0.2.tgz#5006a43e3e212c9ba0d7cdd91cfca1f88967e9fe"
+  integrity sha512-xdE0k/jTXIXNKcIH1rKwXKriDijJUY2Y8QHsZ7GFXJyI3upmz2EWMQ2WKdBS8qO7u52+Sa9IT6/NpKl4nkYeGg==
+
 ansi-escapes@^3.0.0, ansi-escapes@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/ansi-escapes/-/ansi-escapes-3.2.0.tgz#8780b98ff9dbf5638152d1f1fe5c1d7b4442976b"
@@ -262,6 +267,11 @@ chalk@^3.0.0:
 chardet@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
+
+checksync@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/checksync/-/checksync-2.3.0.tgz#d0801971aaa84a0adbc33734d1dab18f87ed54bd"
+  integrity sha512-QhR8MfvqAjo574gILPhGa1+j2NCyhhBC9biY1jigaPOnrtCO23QO+U+4cGfsw0IINXJd3yk6kcNtRKs5JYCdpg==
 
 ci-info@^2.0.0:
   version "2.0.0"
