@@ -97,6 +97,16 @@ ruleTester.run("imports-requiring-flow", rule, {
             ],
         },
         {
+            code: importBarModFlow,
+            filename: path.join(rootDir, "src/package-1/foobar.js"),
+            options: [
+                {
+                    modules: ["src/package-2/"],
+                    rootDir,
+                },
+            ],
+        },
+        {
             code: requireFooPkgFlow,
             filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
@@ -117,6 +127,16 @@ ruleTester.run("imports-requiring-flow", rule, {
             ],
         },
         {
+            code: dynamicImportBarModFlow,
+            filename: path.join(rootDir, "src/package-1/foobar.js"),
+            options: [
+                {
+                    modules: ["src/package-2"],
+                    rootDir,
+                },
+            ],
+        },
+        {
             code: dynamicImportFooPkgFlow,
             filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
@@ -132,6 +152,16 @@ ruleTester.run("imports-requiring-flow", rule, {
             options: [
                 {
                     modules: ["src/package-2/bar.js"],
+                    rootDir,
+                },
+            ],
+        },
+        {
+            code: requireBarModFlow,
+            filename: path.join(rootDir, "src/package-1/foobar.js"),
+            options: [
+                {
+                    modules: ["src/package-2"],
                     rootDir,
                 },
             ],
@@ -221,6 +251,17 @@ ruleTester.run("imports-requiring-flow", rule, {
             errors: ['Importing "../package-2/bar.js" requires using flow.'],
         },
         {
+            code: importBarModNoflow,
+            filename: path.join(rootDir, "src/package-1/foobar.js"),
+            options: [
+                {
+                    modules: ["src/package-2"],
+                    rootDir,
+                },
+            ],
+            errors: ['Importing "../package-2/bar.js" requires using flow.'],
+        },
+        {
             code: requireFooPkgNoflow,
             filename: path.join(rootDir, "src/package-1/foobar.js"),
             options: [
@@ -230,6 +271,17 @@ ruleTester.run("imports-requiring-flow", rule, {
                 },
             ],
             errors: ['Importing "foo" requires using flow.'],
+        },
+        {
+            code: requireBarModNoflow,
+            filename: path.join(rootDir, "src/package-1/foobar.js"),
+            options: [
+                {
+                    modules: ["src/package-2/"],
+                    rootDir,
+                },
+            ],
+            errors: ['Importing "../package-2/bar.js" requires using flow.'],
         },
         {
             code: requireBarModNoflow,
@@ -259,6 +311,17 @@ ruleTester.run("imports-requiring-flow", rule, {
             options: [
                 {
                     modules: ["src/package-2/bar.js"],
+                    rootDir,
+                },
+            ],
+            errors: ['Importing "../package-2/bar.js" requires using flow.'],
+        },
+        {
+            code: dynamicImportBarModNoflow,
+            filename: path.join(rootDir, "src/package-1/foobar.js"),
+            options: [
+                {
+                    modules: ["src/package-2"],
                     rootDir,
                 },
             ],
