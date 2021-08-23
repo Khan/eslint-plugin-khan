@@ -5,9 +5,12 @@ rely on flow to catch issues when refactoring those modules.  This rule
 requires that any files importing one of the specified modules be using
 flow as indicated by a `// @flow` comment in the file.
 
+This rule also works with directories, so that any modules under that directory
+or its subdirectories are required to be using flow types.
+
 Notes:
-- All paths in `modules` that aren't npm packages are considered to be
-  relative to `rootDir`.
+- All paths in `modules` that aren't npm packages (i.e. are directories or files
+  within your codebase) are considered to be relative to `rootDir`.
 - `rootDir` is required and should usually be set to `__dirname`.  This
   requires the the configuration of `khan/imports-requiring-flow` to be
   done in a `.js` file.
@@ -16,7 +19,7 @@ Notes:
 
 Give the following rule config:
 
-```
+```js
 "khan/imports-requiring-flow": [
     "error", {
         rootDir: __dirname,
@@ -32,11 +35,19 @@ import foo from "foo";
 ```
 
 ```js
+import foo from "foo/bar";
+```
+
+```js
 import bar from "./bar";
 ```
 
 ```js
 const foo = require("foo");
+```
+
+```js
+const foo = require("foo/bar");
 ```
 
 ```js
@@ -52,12 +63,22 @@ import foo from "foo";
 
 ```js
 // @flow
+import foo from "foo/bar";
+```
+
+```js
+// @flow
 import bar from "./bar";
 ```
 
 ```js
 // @flow
 const foo = require("foo");
+```
+
+```js
+// @flow
+const foo = require("foo/bar");
 ```
 
 ```js
