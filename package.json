@@ -21,7 +21,7 @@
     "pretty-quick": "^2.0.1"
   },
   "scripts": {
-    "test": "mocha test/jest-await-async-matchers_test.js",
+    "test": "mocha test/**/*.js",
     "prettier": "prettier --write '{lib,test}/**/*.js'",
     "prepublishOnly": "npm run test"
   },
