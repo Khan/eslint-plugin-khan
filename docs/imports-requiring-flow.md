@@ -12,7 +12,7 @@ Notes:
 - All paths in `modules` that aren't npm packages (i.e. are directories or files
   within your codebase) are considered to be relative to `rootDir`.
 - `rootDir` is required and should usually be set to `__dirname`.  This
-  requires the the configuration of `khan/imports-requiring-flow` to be
+  requires the the configuration of `@khanacademy/imports-requiring-flow` to be
   done in a `.js` file.
 
 ## Rule Details
@@ -20,7 +20,7 @@ Notes:
 Give the following rule config:
 
 ```js
-"khan/imports-requiring-flow": [
+"@khanacademy/imports-requiring-flow": [
     "error", {
         rootDir: __dirname,
         modules: ["foo", "src/bar.js"],
