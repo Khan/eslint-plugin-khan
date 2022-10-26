@@ -24,26 +24,24 @@ util.execSync = command => {
             version: "4.0.0",
             launchString: "",
             files: {
-                filex: {
-                    items: [
-                        {
-                            reason:
-                                "Looks like you changed the target content for sync-tag 'foo-bar' in 'filex:2'. Make sure you've made the parallel changes in the source file, if necessary (12352 != 249234014)",
-                            location: {
-                                line: 2,
-                            },
-                            code: "violation",
-                            fix: {
-                                type: "replace",
-                                line: 2,
-                                description:
-                                    "Updated checksum for sync-tag 'foo-bar' referencing 'filex:2' from 12352 to 249234014.",
-                                declaration: "// sync-start:foo-bar filey",
-                                text: "// sync-start:foo-bar 1424803960 filey",
-                            },
+                filex: [
+                    {
+                        reason:
+                            "Looks like you changed the target content for sync-tag 'foo-bar' in 'filex:2'. Make sure you've made the parallel changes in the source file, if necessary (12352 != 249234014)",
+                        location: {
+                            line: 2,
                         },
-                    ],
-                },
+                        code: "violation",
+                        fix: {
+                            type: "replace",
+                            line: 2,
+                            description:
+                                "Updated checksum for sync-tag 'foo-bar' referencing 'filex:2' from 12352 to 249234014.",
+                            declaration: "// sync-start:foo-bar filey",
+                            text: "// sync-start:foo-bar 1424803960 filey",
+                        },
+                    },
+                ],
             },
         });
     }
@@ -52,24 +50,22 @@ util.execSync = command => {
             version: "4.0.0",
             launchString: "",
             files: {
-                file_delete_tag: {
-                    items: [
-                        {
-                            reason: "Duplicate target for sync-tag 'foo-bar'",
-                            location: {
-                                line: 2,
-                            },
-                            code: "violation",
-                            fix: {
-                                type: "delete",
-                                line: 3,
-                                description:
-                                    "Removed duplicate target for sync-tag 'foo-bar'",
-                                declaration: "// sync-start:foo-bar filey",
-                            },
+                file_delete_tag: [
+                    {
+                        reason: "Duplicate target for sync-tag 'foo-bar'",
+                        location: {
+                            line: 2,
                         },
-                    ],
-                },
+                        code: "violation",
+                        fix: {
+                            type: "delete",
+                            line: 3,
+                            description:
+                                "Removed duplicate target for sync-tag 'foo-bar'",
+                            declaration: "// sync-start:foo-bar filey",
+                        },
+                    },
+                ],
             },
         });
     }
@@ -78,18 +74,16 @@ util.execSync = command => {
             version: "4.0.0",
             launchString: "",
             files: {
-                file_unfixable: {
-                    items: [
-                        {
-                            reason:
-                                "Sync-start for 'foo-bar' points to 'filey', which does not exist or is a directory",
-                            location: {
-                                line: 2,
-                            },
-                            code: "file-does-not-exist",
+                file_unfixable: [
+                    {
+                        reason:
+                            "Sync-start for 'foo-bar' points to 'filey', which does not exist or is a directory",
+                        location: {
+                            line: 2,
                         },
-                    ],
-                },
+                        code: "file-does-not-exist",
+                    },
+                ],
             },
         });
     }
