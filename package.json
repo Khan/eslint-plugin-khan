@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@babel/types": "^7.7.4",
-    "checksync": "^2.3.0"
+    "checksync": "^4.0.0"
   },
   "husky": {
     "hooks": {
