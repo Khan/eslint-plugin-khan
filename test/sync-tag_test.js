@@ -39,7 +39,7 @@ util.execSync = command => {
     return "";
 };
 
-ruleTester.run("require-static-url", rule, {
+ruleTester.run("sync-tag", rule, {
     valid: [
         {
             code:
@@ -47,6 +47,18 @@ ruleTester.run("require-static-url", rule, {
             filename: "filea",
             options: [
                 {
+                    ignoreFiles: ["lint_blacklist.txt"],
+                    rootDir: "/Users/nyancat/project",
+                },
+            ],
+        },
+        {
+            code:
+                "// sync-start:foo-bar 1424803960 fileb\nconst FooBar = 'foobar';\n// sync-end:foobar",
+            filename: "filea",
+            options: [
+                {
+                    configFile: "./checksync.json",
                     ignoreFiles: ["lint_blacklist.txt"],
                     rootDir: "/Users/nyancat/project",
                 },
