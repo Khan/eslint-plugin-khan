@@ -1,11 +1,13 @@
 {
   "name": "@khanacademy/eslint-plugin",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "publishConfig": {
     "access": "public"
   },
   "files": [
-    "/lib"
+    "/lib",
+    "/node_modules/checksync/bin",
+    "/node_modules/checksync/dist"
   ],
   "main": "lib/index.js",
   "repository": "https://github.com/Khan/eslint-plugin-khan",
